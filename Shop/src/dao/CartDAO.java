@@ -2,6 +2,7 @@ package dao;
 
 import java.util.ArrayList;
 
+import Util.InputManager;
 import vo.Cart;
 import vo.Item;
 
@@ -21,6 +22,7 @@ public class CartDAO {
 		for(int i =0; i<cartList.size(); i++) {
 			if(cartList.get(i).getUserId().equals(id)) {
 				idx = i;
+				break;
 			}
 		}
 		if(idx==-1) {
@@ -73,6 +75,22 @@ public class CartDAO {
 	}
 	
 	public void removeCartList(String id) {
+		cartListPrint(id);
 		
+		String name = InputManager.getValue("삭제할 아이템 입력");
+		int idx = -1;
+		for(int i=0; i<cartList.size(); i++) {
+			if(cartList.get(i).getItemName().equals(name) && 
+					cartList.get(i).getUserId().equals(id)) {
+				idx = i;
+				break;
+			}
+		}
+		if(idx==-1) {
+			System.out.println("장바구니에 해당 아이템이 없습니다.");
+			return;
+		}
+		cartList.remove(idx);
+		System.out.println("[삭제 완료]");
 	}
 }
