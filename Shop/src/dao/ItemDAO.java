@@ -46,7 +46,7 @@ public class ItemDAO {
 		String data = "";
 		if(itemList.size()==0) return data;
 		for(Item i : itemList) {
-			data += "%d/%s/%s\n".formatted(i.getName(),i.getPrice(),i.getCategory());
+			data += "%s/%d/%s\n".formatted(i.getName(),i.getPrice(),i.getCategory());
 		}
 		data = data.substring(0,data.length()-1);
 		return data;

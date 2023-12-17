@@ -63,7 +63,7 @@ public class ShopController {
 			if(sel ==0 ) return;
 			
 			if(sel==1) {
-				
+				cartDAO.cartListPrint(log);
 			}else if(sel==2) {
 				cartDAO.removeCartList(log);
 			}else {
@@ -83,13 +83,13 @@ public class ShopController {
 			}else if(sel==2) {
 				categoryManagerMenuPrint();
 			}else if(sel==3){
-				
+				cartDAO.cartListPrint(log);
 			}else if(sel==4){
 				userManagerMenuPrint();
 			}else if(sel==5) {
-				FileManager.dataFileSave(userDAO, itemDAO);
+				FileManager.dataFileSave(userDAO, itemDAO, cartDAO);
 			}else {
-				FileManager.dataFileLoad(userDAO, itemDAO);
+				FileManager.dataFileLoad(userDAO, itemDAO, cartDAO);
 			}
 		}
 	}

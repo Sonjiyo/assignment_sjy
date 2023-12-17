@@ -46,7 +46,7 @@ public class UserDAO {
 		String data = "";
 		if(userList.size()==0) return data;
 		for(User u : userList) {
-			data += "%d/%s/%s\n".formatted(u.getId(),u.getPw(),u.getName());
+			data += "%s/%s/%s\n".formatted(u.getId(),u.getPw(),u.getName());
 		}
 		data = data.substring(0,data.length()-1);
 		return data;

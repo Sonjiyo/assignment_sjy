@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import dao.CartDAO;
 import dao.ItemDAO;
 import dao.UserDAO;
 
@@ -19,9 +20,10 @@ public class FileManager {
 		filePath += this.getClass().getPackageName()+"\\";
 	}
 
-	public static void dataFileSave(UserDAO userDAO, ItemDAO itemDAO) {
+	public static void dataFileSave(UserDAO userDAO, ItemDAO itemDAO, CartDAO cartDAO) {
 		fileSave("user.txt",userDAO.userDataSave());
 		fileSave("item.txt",itemDAO.itemDataSave());
+		fileSave("cart.txt",cartDAO.cartDataSave());
 		
 		System.out.println("[저장 완료]");
 	}
@@ -37,12 +39,14 @@ public class FileManager {
 		}
 	}
 	
-	public static void dataFileLoad(UserDAO userDAO, ItemDAO itemDAO) {
+	public static void dataFileLoad(UserDAO userDAO, ItemDAO itemDAO, CartDAO cartDAO) {
 		String userData = fileLoad("user.txt");
 		String itemData = fileLoad("item.txt");
+		String cartData = fileLoad("cart.txt");
 		
 		userDAO.userDataLoad(userData);
 		itemDAO.itemDataLoad(itemData);
+		cartDAO.cartDataLoad(cartData);
 		
 		System.out.println("[데이터 불러옴]");
 	}
