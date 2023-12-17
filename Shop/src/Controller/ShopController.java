@@ -76,13 +76,13 @@ public class ShopController {
 			if(sel ==0 ) return;
 			
 			if(sel==1) {
-				
+				itemManagerMenuPrint();
 			}else if(sel==2) {
-				
+				categoryManagerMenuPrint();
 			}else if(sel==3){
 				
 			}else if(sel==4){
-				
+				userManagerMenuPrint();
 			}else if(sel==5) {
 				FileManager.dataFileSave(userDAO, itemDAO);
 			}else {
@@ -90,4 +90,49 @@ public class ShopController {
 			}
 		}
 	}
+	private void itemManagerMenuPrint() {
+		while(true) {
+			System.out.println("[1.아이템 추가] [2.아이템 삭제] [0.뒤로가기]");
+			int sel = InputManager.getValue("입력 : ", 0, 2, 0);
+			if(sel ==0 ) return;
+			
+			if(sel==1) {
+				
+			}else if(sel==2) {
+				
+			} else {
+				
+			}
+		}
+	}
+	
+	private void categoryManagerMenuPrint() {
+		while(true) {
+			System.out.println("[1.카테고리 추가] [2.카테고리 삭제] [0.뒤로가기]");
+			int sel = InputManager.getValue("입력 : ", 0, 2, 0);
+			if(sel ==0 ) return;
+			
+			if(sel==1) {
+				
+			}else {
+				
+			}
+		}
+	}
+	
+	private void userManagerMenuPrint() {
+		while(true) {
+			System.out.println("[1.유저 삭제] [2.유저 이름 수정] [0.뒤로가기]");
+			int sel = InputManager.getValue("입력 : ", 0, 2, 0);
+			if(sel ==0 ) return;
+			
+			if(sel==1) {
+				userDAO.removeUserList();
+			}else {
+				userDAO.userNameSetting();
+			}
+		}
+	}
+	
+
 }

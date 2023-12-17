@@ -98,4 +98,20 @@ public class UserDAO {
 		System.out.println(userList.get(idx).getName()+"님 환영합니다.");
 		return id;
 	}
+	
+	public void userNameSetting() {
+		String id = InputManager.getValue("아이디 입력 : ");
+		int idx = userIdCheck(id);
+		if(idx==-1) {
+			System.out.println("존재하지 않는 아이디입니다.");
+			return;
+		}
+		String name = InputManager.getValue("변경할 이름 입력 : ");
+		if(userList.get(idx).getName().equals(name)) {
+			System.out.println("변경 전 이름과 같습니다.");
+			return;
+		}
+		userList.get(idx).setName(name);
+		System.out.println("[변경 완료]");
+	}
 }
