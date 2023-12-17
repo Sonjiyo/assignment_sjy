@@ -65,6 +65,7 @@ public class CartDAO {
 			for(Cart c : cartList) {
 				System.out.println(c);
 			}
+			return;
 		}
 		
 		for(Cart c : cartList) {

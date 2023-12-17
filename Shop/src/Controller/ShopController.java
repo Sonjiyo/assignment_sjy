@@ -48,7 +48,7 @@ public class ShopController {
 			if(sel==1) {
 				shoppingMenuprint();
 			}else if(sel==2) {
-				
+				cartDAO.cartListPrint(log);
 			}else {
 				log = null;
 				return;
