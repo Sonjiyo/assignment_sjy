@@ -16,10 +16,6 @@ public class User {
 		return id;
 	}
 
-	public void setId(String id) {
-		this.id = id;
-	}
-
 	public String getPw() {
 		return pw;
 	}
@@ -30,10 +26,6 @@ public class User {
 
 	public String getName() {
 		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	@Override
