@@ -97,7 +97,7 @@ public class ShopController {
 			if(sel ==0 ) return;
 			
 			if(sel==1) {
-				
+				itemDAO.addItemList();
 			}else if(sel==2) {
 				
 			} else {
@@ -108,15 +108,11 @@ public class ShopController {
 	
 	private void categoryManagerMenuPrint() {
 		while(true) {
-			System.out.println("[1.카테고리 추가] [2.카테고리 삭제] [0.뒤로가기]");
-			int sel = InputManager.getValue("입력 : ", 0, 2, 0);
+			System.out.println("[1.카테고리 삭제] [0.뒤로가기]");
+			int sel = InputManager.getValue("입력 : ", 0, 1, 0);
 			if(sel ==0 ) return;
 			
-			if(sel==1) {
-				
-			}else {
-				
-			}
+			
 		}
 	}
 	

@@ -54,11 +54,15 @@ public class ItemDAO {
 	}
 	
 	public void addItemList() {
+		String category = InputManager.getValue("카테고리 이름 입력 : ");
 		String name = InputManager.getValue("아이템 이름 입력 : ");
 		if(itemNameCheck(name)!=-1) {
 			System.out.println("이미 등록된 아이템입니다.");
 			return;
 		}
 		int price = InputManager.getValue("아이템 가격 입력 : ", 0, 99999, 0);
+		
+		itemList.add(new Item(name,price,category));
+		System.out.println("[아이템 추가 완료]");
 	}
 }
