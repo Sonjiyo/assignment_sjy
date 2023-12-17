@@ -7,7 +7,7 @@ import vo.Item;
 public class ItemDAO {
 	private ArrayList<Item> itemList;
 	
-	private void init() {
+	public ItemDAO() {
 		itemList = new ArrayList<Item>();
 		
 	}
