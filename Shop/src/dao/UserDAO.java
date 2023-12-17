@@ -2,6 +2,7 @@ package dao;
 
 import java.util.ArrayList;
 
+import Util.InputManager;
 import vo.User;
 
 public class UserDAO {
@@ -51,5 +52,15 @@ public class UserDAO {
 		return data;
 	}
 	
-	
+	public void addUserList() {
+		String id = InputManager.getValue("아이디 입력 : ");
+		if(userIdCheck(id)!=-1) {
+			System.out.println("중복된 아이디입니다.");
+			return;
+		}
+		String pw = InputManager.getValue("비밀번호 입력 : ");
+		String name = InputManager.getValue("이름 입력 : ");
+		
+		userList.add(new User(id,pw,name));
+	}
 }

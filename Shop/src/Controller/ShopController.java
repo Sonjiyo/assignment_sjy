@@ -7,8 +7,12 @@ import dao.UserDAO;
 
 public class ShopController {
 	private static String log;
+	private ItemDAO itemDAO; 
+	private UserDAO userDAO;
 	
 	public ShopController() {
+		itemDAO = new ItemDAO();
+		userDAO = new UserDAO();
 		mainMenuPrint();
 	}
 	
@@ -19,7 +23,7 @@ public class ShopController {
 			if(sel ==0 ) return;
 			
 			if(sel==1) {
-				
+				userDAO.addUserList();
 			}else if(sel==2) {
 				
 			}else if(sel==3) {
