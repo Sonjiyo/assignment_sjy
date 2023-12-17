@@ -34,7 +34,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", pw=" + pw + ", name=" + name + "]";
+		return id+"\t"+pw+"\t"+name;
 	}
 	
 	

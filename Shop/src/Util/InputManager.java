@@ -14,7 +14,7 @@ public class InputManager {
 		while(true) {
 			try {
 				System.out.print(msg+"["+start+"~"+end);
-				System.out.print(exception!=0 ? ", "+exception : "");
+				System.out.print(exception!=start ? ", "+exception : "");
 				System.out.print("] : ");
 				int sel = sc.nextInt();
 				if((sel<start || sel>end) && sel!=exception) {

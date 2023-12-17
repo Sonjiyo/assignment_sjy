@@ -30,7 +30,7 @@ public class Item {
 
 	@Override
 	public String toString() {
-		return "Item [name=" + name + ", price=" + price + ", category=" + category + "]";
+		return category+"\t"+name+"\t"+price+"원";
 	}
 	
 	

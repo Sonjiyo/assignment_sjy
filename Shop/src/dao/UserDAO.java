@@ -53,13 +53,13 @@ public class UserDAO {
 	}
 	
 	public void addUserList() {
-		String id = InputManager.getValue("아이디 입력 : ");
+		String id = InputManager.getValue("아이디 입력");
 		if(userIdCheck(id)!=-1) {
 			System.out.println("중복된 아이디입니다.");
 			return;
 		}
-		String pw = InputManager.getValue("비밀번호 입력 : ");
-		String name = InputManager.getValue("이름 입력 : ");
+		String pw = InputManager.getValue("비밀번호 입력");
+		String name = InputManager.getValue("이름 입력");
 		
 		userList.add(new User(id,pw,name));
 		System.out.println("[가입 완료]");
@@ -67,13 +67,13 @@ public class UserDAO {
 	
 	public void removeUserList() {
 		if(userListIsEmpty()) return;
-		String id = InputManager.getValue("아이디 입력 : ");
+		String id = InputManager.getValue("아이디 입력");
 		int idx = userIdCheck(id);
 		if(idx==-1) {
 			System.out.println("존재하지 않는 아이디입니다.");
 			return;
 		}
-		String pw = InputManager.getValue("비밀번호 입력 : ");
+		String pw = InputManager.getValue("비밀번호 입력");
 		if(!userList.get(idx).getPw().equals(pw)) {
 			System.out.println("비밀번호가 일치하지 않습니다.");
 			return;
@@ -83,13 +83,14 @@ public class UserDAO {
 	}
 	
 	public String userLogin() {
-		String id = InputManager.getValue("아이디 입력 : ");
+		if(userListIsEmpty()) return "";
+		String id = InputManager.getValue("아이디 입력");
 		int idx = userIdCheck(id);
 		if(idx==-1) {
 			System.out.println("존재하지 않는 아이디입니다.");
 			return "";
 		}
-		String pw = InputManager.getValue("비밀번호 입력 : ");
+		String pw = InputManager.getValue("비밀번호 입력");
 		if(!userList.get(idx).getPw().equals(pw)) {
 			System.out.println("비밀번호가 일치하지 않습니다.");
 			return "";
@@ -100,18 +101,25 @@ public class UserDAO {
 	}
 	
 	public void userNameSetting() {
-		String id = InputManager.getValue("아이디 입력 : ");
+		String id = InputManager.getValue("아이디 입력");
 		int idx = userIdCheck(id);
 		if(idx==-1) {
 			System.out.println("존재하지 않는 아이디입니다.");
 			return;
 		}
-		String name = InputManager.getValue("변경할 이름 입력 : ");
+		String name = InputManager.getValue("변경할 이름 입력");
 		if(userList.get(idx).getName().equals(name)) {
 			System.out.println("변경 전 이름과 같습니다.");
 			return;
 		}
 		userList.get(idx).setName(name);
 		System.out.println("[변경 완료]");
+	}
+	
+	public void userListPrint() {
+		if(userListIsEmpty()) return;
+		for(User u : userList) {
+			System.out.println(u);
+		}
 	}
 }
