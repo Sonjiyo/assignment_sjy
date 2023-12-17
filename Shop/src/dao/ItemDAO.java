@@ -2,6 +2,7 @@ package dao;
 
 import java.util.ArrayList;
 
+import Util.InputManager;
 import vo.Item;
 
 public class ItemDAO {
@@ -50,5 +51,14 @@ public class ItemDAO {
 		}
 		data = data.substring(0,data.length()-1);
 		return data;
+	}
+	
+	public void addItemList() {
+		String name = InputManager.getValue("아이템 이름 입력 : ");
+		if(itemNameCheck(name)!=-1) {
+			System.out.println("이미 등록된 아이템입니다.");
+			return;
+		}
+		int price = InputManager.getValue("아이템 가격 입력 : ", 0, 99999, 0);
 	}
 }

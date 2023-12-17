@@ -84,9 +84,9 @@ public class ShopController {
 			}else if(sel==4){
 				
 			}else if(sel==5) {
-				
+				FileManager.dataFileSave(userDAO, itemDAO);
 			}else {
-
+				FileManager.dataFileLoad(userDAO, itemDAO);
 			}
 		}
 	}
