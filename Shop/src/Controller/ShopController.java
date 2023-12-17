@@ -99,7 +99,7 @@ public class ShopController {
 			if(sel==1) {
 				itemDAO.addItemList();
 			}else if(sel==2) {
-				
+				itemDAO.removeItemList();
 			} else {
 				
 			}

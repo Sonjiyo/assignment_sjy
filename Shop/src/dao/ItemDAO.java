@@ -65,4 +65,16 @@ public class ItemDAO {
 		itemList.add(new Item(name,price,category));
 		System.out.println("[아이템 추가 완료]");
 	}
+	
+	public void removeItemList() {
+		String name = InputManager.getValue("아이템 이름 입력 : ");
+		int idx = itemNameCheck(name);
+		if(idx==-1) {
+			System.out.println("존재하지 않는 아이템입니다.");
+			return;
+		}
+		
+		itemList.remove(idx);
+		System.out.println("[아이템 삭제 완료]");
+	}
 }
