@@ -13,7 +13,9 @@ public class InputManager {
 	public static int getValue(String msg, int start, int end, int exception) {
 		while(true) {
 			try {
-				System.out.print(msg+"["+start+"~"+end+"] : ");				
+				System.out.print(msg+"["+start+"~"+end);
+				System.out.print(exception!=0 ? ", "+exception : "");
+				System.out.print("] : ");
 				int sel = sc.nextInt();
 				if((sel<start || sel>end) && sel!=exception) {
 					System.out.println("범위 오류");

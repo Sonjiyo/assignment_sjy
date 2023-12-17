@@ -11,6 +11,25 @@ public class UserDAO {
 		userList = new ArrayList<User>();
 	}
 	
+	private boolean userListIsEmpty() {
+		if(userList.size()==0) {
+			System.out.println("유저가 없습니다.");
+			return true;
+		}
+		return false;
+	}
+	
+	private int userIdCheck(String id) {
+		if(userList.size()==0) return -1;
+		
+		for(int i=0; i<userList.size(); i++) {
+			if(userList.get(i).getId().equals(id)) {
+				return i;
+			}
+		}
+		return -1;
+	}
+	
 	public void userDataLoad(String data){
 		if(data.isEmpty()) return;
 		userList.clear();
@@ -31,4 +50,6 @@ public class UserDAO {
 		data = data.substring(0,data.length()-1);
 		return data;
 	}
+	
+	
 }

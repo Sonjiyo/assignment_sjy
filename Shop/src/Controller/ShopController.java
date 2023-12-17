@@ -1,11 +1,16 @@
 package Controller;
 
+import Util.FileManager;
 import Util.InputManager;
 import dao.ItemDAO;
 import dao.UserDAO;
 
 public class ShopController {
 	private static String log;
+	
+	public ShopController() {
+		mainMenuPrint();
+	}
 	
 	private void mainMenuPrint() {
 		while(true) {
@@ -21,7 +26,7 @@ public class ShopController {
 				log = "";
 				userMenuPrint();
 			}else if(sel==100) {
-				
+				managerMenuPrint();
 			}
 		}
 	}
