@@ -25,7 +25,7 @@ public class ShopController {
 			if(sel==1) {
 				userDAO.addUserList();
 			}else if(sel==2) {
-				
+				userDAO.removeUserList();
 			}else if(sel==3) {
 				log = "";
 				userMenuPrint();

@@ -62,5 +62,22 @@ public class UserDAO {
 		String name = InputManager.getValue("이름 입력 : ");
 		
 		userList.add(new User(id,pw,name));
+		System.out.println("[가입 완료]");
+	}
+	
+	public void removeUserList() {
+		String id = InputManager.getValue("아이디 입력 : ");
+		int idx = userIdCheck(id);
+		if(idx==-1) {
+			System.out.println("존재하지 않는 아이디입니다.");
+			return;
+		}
+		String pw = InputManager.getValue("비밀번호 입력 : ");
+		if(!userList.get(idx).getPw().equals(pw)) {
+			System.out.println("비밀번호가 일치하지 않습니다.");
+			return;
+		}
+		userList.remove(idx);
+		System.out.println("[탈퇴 완료]");
 	}
 }
