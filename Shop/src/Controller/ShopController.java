@@ -48,7 +48,7 @@ public class ShopController {
 			if(sel==1) {
 				shoppingMenuprint();
 			}else if(sel==2) {
-				cartDAO.cartListPrint(log);
+				cartDAO.myCartListPrint(log);
 			}else {
 				log = null;
 				return;
@@ -63,7 +63,7 @@ public class ShopController {
 			if(sel ==0 ) return;
 			
 			if(sel==1) {
-				cartDAO.cartListPrint(log);
+				cartDAO.myCartListPrint(log);
 			}else if(sel==2) {
 				cartDAO.removeCartList(log);
 			}else {
@@ -83,7 +83,7 @@ public class ShopController {
 			}else if(sel==2) {
 				categoryManagerMenuPrint();
 			}else if(sel==3){
-				cartDAO.cartListPrint(log);
+				cartDAO.allCartListPrint();
 			}else if(sel==4){
 				userManagerMenuPrint();
 			}else if(sel==5) {

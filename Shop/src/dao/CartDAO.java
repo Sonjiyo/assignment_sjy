@@ -58,26 +58,49 @@ public class CartDAO {
 		cartList.add(new Cart(id, name));
 	}
 	
-	public void cartListPrint(String id) {
-		if(cartListIsEmpty(id)) return;
-		
-		if(id.isEmpty()) {
-			for(Cart c : cartList) {
-				System.out.println(c);
+	public void allCartListPrint() {
+		System.out.println("id\t제품명");
+		System.out.println("================");
+		for(Cart c : cartList) {
+			System.out.println(c);
+		}
+	}
+	
+	private boolean checkCartItemList(ArrayList<String> list, String name) {
+		for(String l : list) {
+			if(l.equals(name)) {
+				return false;
 			}
-			return;
+		}
+		return true;
+	}
+	
+	public void myCartListPrint(String id) {
+		if(cartListIsEmpty(id)) return;
+		System.out.println("===장바구니 목록===");
+		ArrayList<String> list = new ArrayList<String>();
+	
+		for(Cart c : cartList) {
+			if(c.getUserId().equals(id) && checkCartItemList(list, c.getItemName())) {
+				list.add(c.getItemName());					
+			}
 		}
 		
-		for(Cart c : cartList) {
-			if(c.getUserId().equals(id)) {
-				System.out.println(c);
+		for(String l : list) {
+			int cnt = 0;
+			for(Cart c : cartList) {
+				if(c.getUserId().equals(id) && l.equals(c.getItemName())) {
+					cnt++;
+				}
 			}
-		}	
+			if(cnt>0) {
+				System.out.println(l+"\t"+cnt+"개");
+			}
+		}
+		return;
 	}
 	
 	public void removeCartList(String id) {
-		cartListPrint(id);
-		
 		String name = InputManager.getValue("삭제할 아이템 입력");
 		int idx = -1;
 		for(int i=0; i<cartList.size(); i++) {
