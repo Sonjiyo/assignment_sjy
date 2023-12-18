@@ -118,6 +118,8 @@ public class UserDAO {
 	
 	public void userListPrint() {
 		if(userListIsEmpty()) return;
+		System.out.println("id\tpw\t이름");
+		System.out.println("========================");
 		for(User u : userList) {
 			System.out.println(u);
 		}
